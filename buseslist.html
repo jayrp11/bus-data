@@ -1,0 +1,17 @@
+<div class="container" ng-if="!personCtrl.persons.e">
+  <div ng-repeat="org in busesCtrl.buses">
+    <h1>{{org.organisation}}</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <th>Bus ID</th>
+        <th>Route Variant</th>
+        <th>Status</th>
+      </thead>
+      <tbody ng-repeat="bus in org.busData">
+        <td>{{bus.busId}}</td>
+        <td>{{bus.routeVariant}}</td>
+        <td>{{bus.deviationFromTimetable}}</td>
+      </tbody>
+    </table>
+  </div>
+</div>
