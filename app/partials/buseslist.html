@@ -19,7 +19,7 @@
           <tbody ng-repeat="bus in org.busData">
             <td>{{bus.busId}}</td>
             <td ng-bind-html="bus.routeVariant | formatVariant"></td>
-            <td>{{bus.deviationFromTimetable | formatStatus}}</td>
+            <td ng-bind-html="bus.deviationFromTimetable | formatStatus"></td>
           </tbody>
         </table>
         <div class="panel-body">

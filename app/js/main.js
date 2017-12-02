@@ -14,6 +14,7 @@
   busApp.filter('formatVariant', function() {
     return function (input) {
       if(!input) return input;
+      if(input.toLowerCase() === 'unknown') return input;
       return '<strong>' + input.substr(0, 3) + '</strong>' + input.substr(3);
     };
   });
@@ -22,11 +23,11 @@
     return function (input) {
       if(!input) return input;
       if(input > 300) {
-        return "Late";
+        return "<span class='late'>Late</span>";
       } else if(input < 0) {
-        return "Early";
+        return "<span class='early'>Early</span>";
       } else {
-        return "On Time";
+        return "<span class='ontime'>On Time</span>";
       }
     };
   });
