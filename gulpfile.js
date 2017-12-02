@@ -72,13 +72,6 @@ gulp.task('connect', function () {
   });
 });
 
-gulp.task('connectDist', function () {
-  connect.server({
-    root: 'dist/',
-    port: 9999
-  });
-});
-
 gulp.task('watch', function() {
   gulp.watch('./app/js/*.js', ['lint', 'browserify'])
 })
@@ -88,6 +81,6 @@ gulp.task('default', ['watch', 'connect']);
 gulp.task('build', function() {
   runSequence(
     ['clean'],
-    ['lint', 'minify-css', 'browserifyDist', 'copy-html-files', 'copy-bower-components', 'connectDist']
+    ['lint', 'minify-css', 'browserifyDist', 'copy-html-files', 'copy-bower-components']
   );
 });
