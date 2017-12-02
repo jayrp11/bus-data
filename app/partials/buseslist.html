@@ -22,6 +22,15 @@
             <td>{{bus.deviationFromTimetable}}</td>
           </tbody>
         </table>
+        <div class="panel-body">
+          <form ng-submit="busesCtrl.saveNotes()">
+            <input type="hidden" value="{{org.organisation}}">
+            <div class="form-group">
+              <textarea ng-attr-name="busesCtrl.notes{{$index + 1}}" ng-model="busesCtrl.notes[$index+1]" class="form-control" rows="3" placeholder="Enter notes here"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Save Notes</button>
+          </form>
+        </div>
       </div>
     </div>
   </div>

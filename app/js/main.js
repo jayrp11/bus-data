@@ -17,9 +17,9 @@
     }
   });
 
-  busApp.factory('Buses', ['$resource', 'apiUrl', function($resource, apiUrl) {
+  busApp.factory('Buses', function($resource, apiUrl) {
     return $resource(apiUrl);
-  }]);
+  });
 
   busApp.config(function($routeProvider) {
     var resolveBuses = {
@@ -40,6 +40,11 @@
   busApp.controller('BusesController', function(buses, $location) {
     var busesCtrl = this;
     busesCtrl.buses = buses;
+    busesCtrl.notes = {};
+
+    busesCtrl.saveNotes = function(form) {
+      console.log(busesCtrl.notes);
+    }
   });
 
 }());
