@@ -13,8 +13,22 @@
 
   busApp.filter('formatVariant', function() {
     return function (input) {
+      if(!input) return input;
       return '<strong>' + input.substr(0, 3) + '</strong>' + input.substr(3);
-    }
+    };
+  });
+
+  busApp.filter('formatStatus', function() {
+    return function (input) {
+      if(!input) return input;
+      if(input > 300) {
+        return "Late";
+      } else if(input < 0) {
+        return "Early";
+      } else {
+        return "On Time";
+      }
+    };
   });
 
   busApp.factory('Buses', function($resource, apiUrl) {
@@ -44,7 +58,7 @@
 
     busesCtrl.saveNotes = function(form) {
       console.log(busesCtrl.notes);
-    }
+    };
   });
 
 }());

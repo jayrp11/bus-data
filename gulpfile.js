@@ -10,10 +10,9 @@ var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 
 gulp.task('lint', function() {
-  gulp.src(['./app/**/*.js', '!./app/bower_components/**'])
+  gulp.src(['./app/**/*.js', '!./app/bower_components/**', '!./app/js/bundled.js'])
     .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
+    .pipe(jshint.reporter('default'));
 });
 
 gulp.task('browserify', function() {
@@ -80,9 +79,11 @@ gulp.task('connectDist', function () {
   });
 });
 
-gulp.task('default',
-  ['browserify', 'connect']
-);
+gulp.task('watch', function() {
+  gulp.watch('./app/js/*.js', ['lint', 'browserify'])
+})
+
+gulp.task('default', ['watch', 'connect']);
 
 gulp.task('build', function() {
   runSequence(
