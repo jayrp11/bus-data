@@ -1,0 +1,22 @@
+{
+  "name": "bus-data",
+  "description": "Bus Report App",
+  "main": "index.js",
+  "authors": [
+    "Jaydeep Patel"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jayrp11/bus-data",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "open-iconic": "^1.1.1"
+  }
+}

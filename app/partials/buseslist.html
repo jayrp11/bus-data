@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Bus Reports</h1>
+  <div id="accordion" role="tablist" ng-repeat="org in busesCtrl.buses">
+    <div class="card">
+      <div class="card-header" role="tab" id="heading{{$index}}">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-target="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}">
+            {{org.organisation}} - {{org.date}}
+          </a>
+        </h5>
+      </div>
+
+      <div id="collapse{{$index}}" class="collapse" role="tabpanel" aria-labelledby="heading{{$index}}" data-parent="#accordion">
+        <table class="table">
+          <thead>
+            <th>Bus ID</th>
+            <th>Route Variant</th>
+            <th>Status</th>
+          </thead>
+          <tbody ng-repeat="bus in org.busData">
+            <td>{{bus.busId}}</td>
+            <td ng-bind-html="bus.routeVariant | formatVariant"></td>
+            <td>{{bus.deviationFromTimetable}}</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
