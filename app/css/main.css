@@ -1,0 +1,21 @@
+.late {
+	color: blue;
+}
+
+.early {
+	color: red;
+}
+
+.ontime {
+	color: green;
+}
+
+.panel-heading a:after {
+    font-family:'Glyphicons Halflings';
+    content:"\e160";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content:"\e159";
+}

@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "8"
+install:
+  - npm install -g bower gulp karma-cli
+  - npm install
+  - bower install
+script:
+  - gulp build
+deploy:
+  provider: s3
+  access_key_id: "$AWS_BUS_DATA_KEY"
+  secret_access_key: "$AWS_BUS_DATA_SECRET"
+  bucket: "bus-data-jdp"
+  skip_cleanup: true
+  region: ap-southeast-2
+  local_dir: dist
