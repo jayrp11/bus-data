@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Bus Reports</h1>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" ng-repeat="org in busesCtrl.buses">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}">
+            {{org.organisation}} - {{org.date}}
+          </a>
+        </h4>
+      </div>
+      <div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$index}}">
+        <table class="table">
+          <thead>
+            <th>Bus ID</th>
+            <th>Route Variant</th>
+            <th>Status</th>
+          </thead>
+          <tbody ng-repeat="bus in org.busData">
+            <td>{{bus.busId}}</td>
+            <td ng-bind-html="bus.routeVariant | formatVariant"></td>
+            <td ng-bind-html="bus.deviationFromTimetable | formatStatus"></td>
+          </tbody>
+        </table>
+        <div class="panel-body">
+          <form ng-submit="busesCtrl.saveNotes()">
+            <input type="hidden" value="{{org.organisation}}">
+            <div class="form-group">
+              <textarea ng-attr-name="busesCtrl.notes{{$index + 1}}" ng-model="busesCtrl.notes[$index+1]" class="form-control" rows="3" placeholder="Enter notes here"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Save Notes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
