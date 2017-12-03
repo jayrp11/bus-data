@@ -21,7 +21,7 @@
 
   busApp.filter('formatStatus', function() {
     return function (input) {
-      if(!input) return input;
+      if(!input) return 'Unknown';
       if(input > 300) {
         return "<span class='late'>Late</span>";
       } else if(input < 0) {
