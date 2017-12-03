@@ -76,7 +76,7 @@ gulp.task('watch', function() {
   gulp.watch('./app/js/*.js', ['lint', 'browserify'])
 })
 
-gulp.task('default', ['watch', 'connect']);
+gulp.task('default', ['lint', 'browserify', 'watch', 'connect']);
 
 gulp.task('build', function() {
   runSequence(
