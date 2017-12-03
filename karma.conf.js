@@ -5,7 +5,10 @@ module.exports = function(config) {
     files: [
         'app/js/bundled.js',
         'node_modules/angular-mocks/angular-mocks.js',
-        'test/main.spec.js'
+        'test/status-filter.spec.js',
+        'test/variant-filter.spec.js',
+        'test/buses-factory.spec.js',
+        'test/buses-controller.spec.js'
     ],
     exclude: [
     ],
